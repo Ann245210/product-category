@@ -1,3 +1,12 @@
+<?php
+require_once("../../../db_connect_product_category.php");
+
+
+$sqlAll = "SELECT * FROM primary_category where valid = 1";
+$resultAll = $conn->query($sqlAll);
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -29,13 +38,23 @@
             <thead>
                 <tr>
                     <td>編號</td>
-                    <td>商品名稱</td>
+                    <td>分類項目</td>
                     <td>查看資訊</td>
                     <td>編輯</td>
                 </tr>
             </thead>
             <tbody>
-                <tr></tr>
+            <?php
+                    $rows = $resultAll->fetch_all(MYSQLI_ASSOC);
+                    foreach ($rows as $product_category) :
+                    ?>
+                <tr>
+                    <td><?=$product_category["id"]?></td>
+                    <td><?=$product_category["name"]?></td>
+                    <td><a href=""><i class="fa-solid fa-list fa-fw"></i></a></td>
+                    <td><a href=""><i class="fa-solid fa-pen-to-square"></i></a></td>
+                </tr>
+            <?php endforeach ?>
             </tbody>
         </table>
     </div>
