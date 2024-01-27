@@ -61,8 +61,11 @@ $resultAll = $conn->query($sqlAll);
 
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
             <div class="input-group">
-              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="Type here...">
+              <input type="search" class="form-control" placeholder="搜尋類別" name="search">
+              <!-- <input type="search" class="form-control" placeholder="Name" aria-label="Recipient's username" aria-describedby="button-addon2" name="search" <?php if (isset($_GET["search"])) : $searchValue = $_GET["search"]; ?> value="<?= $searchValue ?>" <?php endif; ?>> -->
+              <button class="input-group-text text-body" type="submit" id="button-addon"><i class="fa-solid fa-magnifying-glass fa-fw"></i></button>
+
+              <!-- <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span> -->
             </div>
           </div>
 
@@ -82,7 +85,7 @@ $resultAll = $conn->query($sqlAll);
                     <tr>
                       <th class="text-uppercase text-secondary font-weight-bolder opacity-7">編號</th>
                       <th class="text-uppercase text-secondary font-weight-bolder opacity-7 ps-2">分類項目</th>
-                      
+
                       <th class="text-uppercase text-secondary font-weight-bolder text-center opacity-7 ps-2">編輯</th>
                       <th class="text-uppercase text-secondary font-weight-bolder opacity-7 ps-2">查看內容</th>
                     </tr>
@@ -108,14 +111,7 @@ $resultAll = $conn->query($sqlAll);
                         </td> -->
                         <td class="align-middle text-center">
                           <div class="d-flex align-items-center justify-content-center">
-                            <a
-                              name=""
-                              id=""
-                              class=" me-2 text-lg font-weight-bold"
-                              href="#"
-                              role="button"
-                              ><i class="fa-solid fa-pen-to-square"></i></a
-                            >
+                            <a name="" id="" class=" me-2 text-lg font-weight-bold" href="#" role="button"><i class="fa-solid fa-pen-to-square"></i></a>
                           </div>
                         </td>
                         <td class="align-middle">
@@ -128,26 +124,38 @@ $resultAll = $conn->query($sqlAll);
                   </tbody>
                 </table>
               </div>
+
             </div>
           </div>
+          <div class="d-flex justify-content-end">
+            <a class="btn btn-primary mb-0 mt-1 py-2 text-end" href="" type="button"><i class="fa-solid fa-plus"></i> 新增類別</a>
+          </div>
+
         </div>
       </div>
-      <footer class="footer pt-3  ">
-        <div class="container-fluid">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6 mb-lg-0 mb-4">
-              <div class="copyright text-center text-sm text-muted text-lg-start">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+        </ul>
+        </nav>
+        <footer class="footer pt-3  ">
+          <div class="container-fluid">
+            <div class="row align-items-center justify-content-lg-between">
+              <div class="col-lg-6 mb-lg-0 mb-4">
+                <!-- <div class="copyright text-center text-sm text-muted text-lg-start">
                 © <script>
                   document.write(new Date().getFullYear())
                 </script>,
                 made with <i class="fa fa-heart"></i> by
                 <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
                 for a better web.
+              </div> -->
               </div>
             </div>
           </div>
-        </div>
-      </footer>
+        </footer>
     </div>
   </main>
   <div class="fixed-plugin">
